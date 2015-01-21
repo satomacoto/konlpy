@@ -26,6 +26,7 @@ attrs = ['tags', # 품사 태그
 def parse(result, allattrs=False):
     def split(elem):
         if not elem: return ('','SY')
+        if '\t' not in elem: return (elem,'SY')
         s, t = elem.split('\t')
         return (s, t.split(',', 1)[0])
 
